@@ -1,5 +1,8 @@
 <?php
 
+use App\Providers\CatalogServiceProvider;
+use App\Providers\DomainServiceProvider;
+use App\Providers\ViewServiceProvider;
 use Illuminate\Support\Facades\Facade;
 
 return [
@@ -41,7 +44,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool)env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -185,16 +188,19 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Intervention\Image\ImageServiceProvider::class,
         /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
+
+        ViewServiceProvider::class,
+        DomainServiceProvider::class,
+        CatalogServiceProvider::class
 
     ],
 
@@ -211,6 +217,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+//        'Image' => Intervention\Image\Facades\Image::class
     ])->toArray(),
 
 ];

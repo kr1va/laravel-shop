@@ -1,6 +1,7 @@
 # Installation
 
-- php artisan storage:link
-- php artisan migrate
+- composer install
+- php artisan project:install
+- make .env and .env from .env.example!!!
 
 # Deploy
